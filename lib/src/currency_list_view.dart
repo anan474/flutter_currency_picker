@@ -121,20 +121,22 @@ class _CurrencyListViewState extends State<CurrencyListView> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
           child: widget.showSearchField
-              ? TextField(
-                  controller: _searchController,
-                  decoration: InputDecoration(
-                    labelText: widget.searchHint ?? "Search",
-                    hintText: widget.searchHint ?? "Search",
-                    prefixIcon: const Icon(Icons.search),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: const Color(0xFF8C98A8).withOpacity(0.2),
+              ? Theme(
+                  data: ThemeData(brightness: Brightness.dark),
+                  child: TextField(
+                    controller: _searchController,
+                    decoration: InputDecoration(
+                      labelText: widget.searchHint ?? "Search",
+                      hintText: widget.searchHint ?? "Search",
+                      prefixIcon: const Icon(Icons.search),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: const Color(0xFF8C98A8).withOpacity(0.2),
+                        ),
                       ),
                     ),
-                  ),
-                  onChanged: _filterSearchResults,
-                )
+                    onChanged: _filterSearchResults,
+                  ))
               : Container(),
         ),
         Expanded(
